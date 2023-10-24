@@ -9,7 +9,7 @@ return {
     end,
     init = function()
       vim.g.mkdp_theme = "dark"
-      vim.g.mkdp_auto_start = 1
+      vim.g.mkdp_auto_start = 0
     end,
     -- config = function()
     -- vim.g.mkdp_browser = "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"

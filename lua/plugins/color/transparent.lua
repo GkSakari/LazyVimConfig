@@ -4,20 +4,19 @@ return {
   "xiyaowong/transparent.nvim",
   enable = true,
   lazy = false,
-  priority = 1000,
+  priority = 1500,
   config = function()
     require("transparent").setup({
+      groups = {},
       extra_groups = {
         "NeoTreeNormal",
         "NeoTreeNormalNC",
-        "NormalFloat",
+        -- "NormalFloat",
       },
     })
-    require("notify").setup({
-      background_colour = "#000000",
-    })
-
-    vim.g.neovide_transparency = 0.8
+    -- require("notify").setup({
+    --   background_colour = "#000000",
+    -- })
     -- require("transparent").clear_prefix("lualine")
   end,
 }
