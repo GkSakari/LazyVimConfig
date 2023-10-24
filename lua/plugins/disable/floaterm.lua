@@ -2,7 +2,7 @@ return {
   "voldikss/vim-floaterm",
   opts = {
     floaterm_title = "GenshinTerm",
-    floaterm_winblend = 100,
+    -- floaterm_winblend = 100,
     floaterm_width = 0.8,
     floaterm_height = 0.8,
 

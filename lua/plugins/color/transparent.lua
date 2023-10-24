@@ -2,7 +2,7 @@
 
 return {
   "xiyaowong/transparent.nvim",
-  enable = true,
+  enable = false,
   lazy = false,
   priority = 1500,
   config = function()
