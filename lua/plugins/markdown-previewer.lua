@@ -2,26 +2,17 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    keys = { { "<leader>cp", "<cmd>MarkdownPreviewToggle<cr>" } },
     lazy = false,
-    -- build = "cd app && yarn install",
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
+    build = "cd app && npm install",
     init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
       vim.g.mkdp_theme = "dark"
-      vim.g.mkdp_auto_start = 0
     end,
-    -- config = function()
-    -- vim.g.mkdp_browser = "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
-    -- end,
+    ft = { "markdown" }, -- build = "cd app && yarn install",
+    -- vim.g.mkdp_auto_start = 1
+    config = function()
+      vim.g.mkdp_browser = "C:/Program Files/Google/Chrome/Application/chrome.exe"
+    end,
   },
 }
--- return {
---   "iamcco/markdown-preview.nvim",
---   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
---   build = "cd app && yarn install",
---   init = function()
---     vim.g.mkdp_filetypes = { "markdown" }
---   end,
---   ft = { "markdown" },
--- }
