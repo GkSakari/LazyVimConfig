@@ -12,7 +12,7 @@ dap.configurations.python = {
     type = "debugpy",
     console = "internalConsole",
     request = "launch",
-    name = "Debug Files",
+    name = "Debug Python",
     program = "${file}",
     -- pythonPath = function()
     -- 	return "/usr/bin/python"

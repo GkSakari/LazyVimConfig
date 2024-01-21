@@ -3,7 +3,7 @@ return {
     "akinsho/toggleterm.nvim",
     config = true,
     cmd = "ToggleTerm",
-    keys = { { "<c-_>", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" } },
+    keys = { { "<c-_>", "<cmd>ToggleTerm<cr>,", desc = "Toggle floating terminal" } },
     opts = {
       open_mapping = [[<c-_>]],
       direction = "float",
@@ -24,7 +24,7 @@ return {
         -- like `size`, width and height can be a number or function which is passed the current terminal
         -- width = <value>,
         -- height = <value>,
-        -- winblend = 30,
+        -- winblend = 80,
         -- zindex = <value>,
       },
     },

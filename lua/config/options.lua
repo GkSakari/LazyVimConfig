@@ -73,7 +73,7 @@ opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
--- opt.winblend = 20
+-- opt.winblend = 80
 -- opt.pumblend = 30
 
 if vim.fn.has("nvim-0.10") == 1 then

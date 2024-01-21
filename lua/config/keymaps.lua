@@ -1,19 +1,21 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-local map = vim.keymap
+local Util = require("lazyvim.util")
 
-map.set("i", "jk", "<Esc>")
+local map = Util.safe_keymap_set
+
+map("i", "jk", "<Esc>")
 
 -- 取消高亮
-map.set("n", "<leader>nh", ":nohl<CR>")
+map("n", "<leader>nh", ":nohl<CR>")
 
 -- 快速编译
-map.set("n", "<F4>", ":!clang++ *.cpp<CR>")
-map.set("n", "<C-F4>", ":!clang++ -g *.cpp<CR>")
+map("n", "<F4>", ":!clang++ *.cpp<CR>")
+map("n", "<C-F4>", ":!clang++ -g *.cpp<CR>")
 
 -- 打开终端
-map.set("n", "<c-/>", "<cmd>ToggleTerm<cr>")
+map("n", "<c-/>", "<cmd>ToggleTerm<cr>")
 
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
@@ -27,8 +29,19 @@ function _G.set_terminal_keymaps()
 end
 vim.keymap.set("t", "<MouseMove>", "<NOP>")
 -- markdown粘贴图片
-map.set("n", "<leader>p", "<cmd>PinmdPaste<cr>")
+map("n", "<leader>p", "<cmd>PinmdPaste<cr>")
 
---
+vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
+vim.keymap.set({ "n", "x" }, "<c-v>", "<Plug>(YankyPutAfter)")
+
+-- lazygit
+map("n", "<leader>gg", function()
+  Util.terminal({ "gitui" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false })
+end, { desc = "Gitui (root dir)" })
+map("n", "<leader>gG", function()
+  Util.terminal({ "gitui" }, { esc_esc = false, ctrl_hjkl = false })
+end, { desc = "Gitui (cwd)" })
+
 -- -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 -- vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")

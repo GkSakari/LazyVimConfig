@@ -3,7 +3,7 @@ return {
   config = function()
     require("telescope").setup({
       -- defaults = {
-      --   winblend = 30,
+      --   winblend = 80,
       -- },
     })
   end,
