@@ -36,12 +36,12 @@ vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
 vim.keymap.set({ "n", "x" }, "<c-v>", "<Plug>(YankyPutAfter)")
 
 -- lazygit
-map("n", "<leader>gg", function()
-  Util.terminal({ "gitui" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false })
-end, { desc = "Gitui (root dir)" })
-map("n", "<leader>gG", function()
-  Util.terminal({ "gitui" }, { esc_esc = false, ctrl_hjkl = false })
-end, { desc = "Gitui (cwd)" })
+-- map("n", "<leader>gg", function()
+--   Util.terminal({ "gitui" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false })
+-- end, { desc = "Gitui (root dir)" })
+-- map("n", "<leader>gG", function()
+--   Util.terminal({ "gitui" }, { esc_esc = false, ctrl_hjkl = false })
+-- end, { desc = "Gitui (cwd)" })
 
 -- -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 -- vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")

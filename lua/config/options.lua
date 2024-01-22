@@ -7,7 +7,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Enable LazyVim auto format
-vim.g.autoformat = true
+vim.g.autoformat = false
 
 -- LazyVim root dir detection
 -- Each entry can be:
@@ -34,13 +34,14 @@ opt.laststatus = 3 -- global statusline
 opt.list = true -- Show some invisible characters (tabs...
 opt.mouse = "a" -- Enable mouse mode
 opt.number = true -- Print line number
-opt.pumblend = 10 -- Popup blend
+-- opt.winblend = 80
+-- opt.pumblend = 70 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.relativenumber = true -- Relative line numbers
 opt.scrolloff = 4 -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp" }
 opt.shiftround = true -- Round indent
-opt.shiftwidth = 2 -- Size of an indent
+opt.shiftwidth = 4 -- Size of an indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8 -- Columns of context
@@ -73,8 +74,6 @@ opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
--- opt.winblend = 80
--- opt.pumblend = 30
 
 if vim.fn.has("nvim-0.10") == 1 then
   opt.smoothscroll = true
@@ -100,3 +99,5 @@ vim.o.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+vim.g.sqlite_clib_path = "C:/Users/Sakarin/AppData/Local/nvim/data/sqlite3.dll"
