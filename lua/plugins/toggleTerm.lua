@@ -3,9 +3,23 @@ return {
     "akinsho/toggleterm.nvim",
     config = true,
     cmd = "ToggleTerm",
-    keys = { { "<c-_>", "<cmd>ToggleTerm<cr>,", desc = "Toggle floating terminal" } },
+    keys = {
+      { "<c-/>", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" },
+      -- {
+      --   "<c-_>",
+      --   "<cmd>TermExec<cr>",
+      --   desc = "Open new terminal,",
+      -- },
+    },
     opts = {
-      open_mapping = [[<c-_>]],
+      size = function(term)
+        if term.direction == "horizontal" then
+          return vim.o.colums * 0.35
+        elseif term.direction == "vertical" then
+          return vim.o.colums * 0.4
+        end
+      end,
+      open_mapping = [[<c-/>]],
       direction = "float",
       shade_filetypes = {},
       hide_numbers = true,
