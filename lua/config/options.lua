@@ -7,7 +7,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Enable LazyVim auto format
-vim.g.autoformat = false
+vim.g.autoformat = true
 
 -- LazyVim root dir detection
 -- Each entry can be:
@@ -48,6 +48,10 @@ opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
+
+-- 自动设置lua缩进
+vim.api.nvim_command("autocmd FileType lua setlocal shiftwidth=2")
+-- vim.api.nvim_command('autocmd FileType lua setlocal softtabstop=2')
 
 -- 拼写检查
 opt.spelllang = { "en", "cjk" }
@@ -101,3 +105,5 @@ vim.o.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
 vim.g.markdown_recommended_style = 0
 
 vim.g.sqlite_clib_path = "C:/Users/Sakarin/AppData/Local/nvim/data/sqlite3.dll"
+
+vim.g.lazyvim_python_lsp = "pyright"

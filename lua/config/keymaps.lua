@@ -15,7 +15,9 @@ map("n", "<F4>", ":!clang++ *.cpp<CR>")
 map("n", "<C-F4>", ":!clang++ -g *.cpp<CR>")
 
 -- 打开终端
--- map("n", "<c-/>", "<cmd>ToggleTerm<cr>")
+vim.keymap.del("n", "<leader>ft")
+vim.keymap.del("n", "<leader>fT")
+-- map("n", "<c-_>", "<cmd>ToggleTerm<cr>")
 
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }

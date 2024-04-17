@@ -1,10 +1,13 @@
 return {
   {
     "akinsho/toggleterm.nvim",
-    config = true,
-    cmd = "ToggleTerm",
+    -- enabled = false,
+    -- config = true,
+    -- lazy = false,
+    cmd = { "ToggleTerm","TermExec" },
     keys = {
-      { "<c-/>", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" },
+      { [[<c-_>]] },
+      { "<leader>0", "<cmd>2ToggleTerm<cr>", desc = "Terminal #2" },
       -- {
       --   "<c-_>",
       --   "<cmd>TermExec<cr>",
@@ -19,7 +22,7 @@ return {
           return vim.o.colums * 0.4
         end
       end,
-      open_mapping = [[<c-/>]],
+      open_mapping = [[<c-_>]],
       direction = "float",
       shade_filetypes = {},
       hide_numbers = true,
