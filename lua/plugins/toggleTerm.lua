@@ -4,22 +4,22 @@ return {
     -- enabled = false,
     -- config = true,
     -- lazy = false,
-    cmd = { "ToggleTerm","TermExec" },
+    cmd = { "ToggleTerm", "TermExec" },
     keys = {
       { [[<c-_>]] },
-      { "<leader>0", "<cmd>2ToggleTerm<cr>", desc = "Terminal #2" },
-      -- {
-      --   "<c-_>",
-      --   "<cmd>TermExec<cr>",
-      --   desc = "Open new terminal,",
-      -- },
+      -- { mode = "n", "<leader>gg", "<cmd>lua require('lazygit').lazygit_toggle()<CR>", { desc = "Lazygit" } },
+      { mode = "n", "<c-\\>", ":ToggleTerm direction=horizontal<C-b>", desc = "Horizontal Terminal" },
+      { mode = "n", "<space>th", ":ToggleTerm direction=horizontal<C-b>", desc = "Horizontal Terminal" },
+      { mode = "n", "<space>tv", ":ToggleTerm direction=vertical<C-b>", desc = "Vertical Terminal" },
+      { mode = "n", "<space>tt", ":ToggleTerm direction=tab<C-b>", desc = "Tab Terminal" },
+      { mode = "n", "<space>tf", ":ToggleTerm direction=float<C-b>", desc = "Float Terminal" },
     },
     opts = {
       size = function(term)
         if term.direction == "horizontal" then
-          return vim.o.colums * 0.35
+          return 15
         elseif term.direction == "vertical" then
-          return vim.o.colums * 0.4
+          return vim.o.columns * 0.4
         end
       end,
       open_mapping = [[<c-_>]],
@@ -46,4 +46,5 @@ return {
       },
     },
   },
+  -- lazygit_toggle = lazygit_toggle,
 }

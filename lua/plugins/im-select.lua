@@ -1,3 +1,4 @@
+-- TODO: 不适用于Rime
 return {
   "brglng/vim-im-select",
   config = function()
