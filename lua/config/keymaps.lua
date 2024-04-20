@@ -15,7 +15,6 @@ map("n", "<F4>", ":!clang++ *.cpp<CR>")
 map("n", "<C-F4>", ":!clang++ -g *.cpp<CR>")
 
 -- window
-map("n", "<leader>;", "<C-w>w", { desc = "Other Window" })
 map("n", "<leader>ww", "<C-w>w", { desc = "Other Window" })
 map("n", "<leader>wo", "<C-w>o", { desc = "Close all other windows" })
 map("n", "<leader>wx", "<C-w>x", { desc = "Swap current with next" })
@@ -28,6 +27,14 @@ map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close all other tabs" }
 
 -- 增加新行
 map("n", "<CR>", "o<Esc>")
+
+-- 全选
+map("n", "<C-a>", "GVgg")
+map({ "v", "i" }, "<C-a>", "<esc>GVgg")
+
+map("n", "<C-y>", "GVggy<C-o><C-o>")
+map("v", "<C-y>", "<esc>GVggy<C-o><C-o>")
+map("i", "<C-y>", "<esc>GVggy<C-o><C-o>i")
 
 -- 打开终端
 vim.keymap.del("n", "<leader>ft")
