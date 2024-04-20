@@ -1,7 +1,8 @@
 local M = {}
 
+local current_dir = LazyVim.root.get()
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "wsl lazygit", hidden = true })
+local lazygit = Terminal:new({ cmd = "wsl lazygit", dir = current_dir, hidden = true })
 
 function M.lazygit_toggle()
   lazygit:toggle()
