@@ -14,9 +14,9 @@ return {
   },
   opts = {
     -- your configuration there
-    dir = "C:/Users/Sakarin/AppData/Local/nvim/data/",
+    dir = "~/.config/nvim/data",
     debug = true,
-    db_path = "C:/Users/Sakarin/AppData/Local/nvim/data/ultimate.db",
+    db_path = "~/.config/nvim/data/ultimate.db",
     frontend = {
       hover = {
         order = {
