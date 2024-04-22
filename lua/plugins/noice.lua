@@ -1,9 +1,9 @@
 return {
   "folke/noice.nvim",
   opts = {
-    presets = {
-      cmdline_output_to_split = true,
-    },
+    -- presets = {
+    --   cmdline_output_to_split = true,
+    -- },
     routes = {
       {
         filter = {
@@ -21,8 +21,6 @@ return {
           event = "msg_show",
           min_height = 5,
           ["not"] = { find = "Found a swap file" },
-          -- min_length = 30,
-          -- min_width = 30,
         },
         view = "cmdline_output",
       },
