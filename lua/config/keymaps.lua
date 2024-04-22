@@ -60,5 +60,3 @@ map({ "n", "x" }, "<c-v>", "<Plug>(YankyPutAfter)")
 
 map("n", "<leader>gg", "<cmd>lua require('config.utils').lazygit_toggle()<CR>", { desc = "Lazygit" })
 
--- -- if you only want these mappings for toggle term use term://*toggleterm#* instead
--- vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")

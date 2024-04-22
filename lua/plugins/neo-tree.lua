@@ -1,9 +1,12 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  config = function()
+  init = function()
     require("neo-tree").setup({
       window = {
         width = 25,
+        mappings = {
+          ["l"] = "open",
+        },
       },
     })
   end,

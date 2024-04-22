@@ -1,6 +1,6 @@
 return {
   {
-    "akinsho/toggleterm.nvim",
+    "gksakari/toggleterm.nvim",
     -- enabled = false,
     -- config = true,
     -- lazy = false,
@@ -23,6 +23,7 @@ return {
         end
       end,
       open_mapping = [[<c-_>]],
+      -- autochdir = true,
       direction = "float",
       shade_filetypes = {},
       hide_numbers = true,
@@ -46,5 +47,4 @@ return {
       },
     },
   },
-  -- lazygit_toggle = lazygit_toggle,
 }
