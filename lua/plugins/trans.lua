@@ -18,6 +18,7 @@ return {
     debug = true,
     db_path = "C:/Users/Sakarin/AppData/Local/nvim/data/ultimate.db",
     frontend = {
+      default = { auto_play = false },
       hover = {
         order = {
           offline = {
