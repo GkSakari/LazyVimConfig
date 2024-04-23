@@ -21,7 +21,8 @@ map("n", "<leader>wx", "<C-w>x", { desc = "Swap current with next" })
 map("n", "<leader>wt", "<C-w>T", { desc = "Break out into a new tab" })
 
 -- tabs
-map("n", "<tab><tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "]<tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "[<tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 map("n", "<leader><tab><tab>", "<cmd>tabe %<cr>", { desc = "New tab" })
 map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close all other tabs" })
 
@@ -59,4 +60,3 @@ map("n", "<c-n>", "<Plug>(YankyNextEntry)")
 map({ "n", "x" }, "<c-v>", "<Plug>(YankyPutAfter)")
 
 map("n", "<leader>gg", "<cmd>lua require('config.utils').lazygit_toggle()<CR>", { desc = "Lazygit" })
-
