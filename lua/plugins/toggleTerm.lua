@@ -5,15 +5,36 @@ return {
     -- config = true,
     -- lazy = false,
     cmd = { "ToggleTerm", "TermExec" },
-    keys = {
-      { [[<c-_>]] },
-      -- { mode = "n", "<leader>gg", "<cmd>lua require('lazygit').lazygit_toggle()<CR>", { desc = "Lazygit" } },
-      { mode = "n", "<c-\\>", ":ToggleTerm direction=horizontal<C-b>", desc = "Horizontal Terminal" },
-      { mode = "n", "<space>th", ":ToggleTerm direction=horizontal<C-b>", desc = "Horizontal Terminal" },
-      { mode = "n", "<space>tv", ":ToggleTerm direction=vertical<C-b>", desc = "Vertical Terminal" },
-      { mode = "n", "<space>tt", ":ToggleTerm direction=tab<C-b>", desc = "Tab Terminal" },
-      { mode = "n", "<space>tf", ":ToggleTerm direction=float<C-b>", desc = "Float Terminal" },
-    },
+    keys = function()
+      local Terminal = require("toggleterm.terminal").Terminal
+      local lazygit = Terminal:new({ cmd = "lazygit", direction = "float" })
+      local function lazygit_toggle()
+        lazygit.dir = LazyVim.root.git()
+        lazygit:toggle()
+      end
+
+      local keys = {
+        { [[<c-_>]] },
+        -- { mode = "n", "<leader>gg", "<cmd>lua require('lazygit').lazygit_toggle()<CR>", { desc = "Lazygit" } },
+        { "<c-\\>", ":ToggleTerm direction=horizontal<C-b>", desc = "New Horizontal Terminal" },
+        { "<space>th", ":ToggleTerm direction=horizontal<C-b>", desc = "New Horizontal Terminal" },
+        { "<space>tH", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Horizontal Terminal" },
+        { "<space>tv", ":ToggleTerm direction=vertical<C-b>", desc = "New Vertical Terminal" },
+        { "<space>tV", "<cmd>ToggleTerm direction=vertical<cr>", desc = "Vertical Terminal" },
+        { "<space>tt", ":ToggleTerm direction=tab<C-b>", desc = "New Tab Terminal" },
+        { "<space>tT", "<cmd>ToggleTerm direction=tab<cr>", desc = "Tab Terminal" },
+        { "<space>tf", ":ToggleTerm direction=float<C-b>", desc = "New Float Terminal" },
+        { "<space>tF", "<cmd>ToggleTerm direction=float<cr>", desc = "Float Terminal" },
+        {
+          "<leader>gg",
+          function()
+            lazygit_toggle()
+          end,
+          desc = "Lazygit",
+        },
+      }
+      return keys
+    end,
     opts = {
       size = function(term)
         if term.direction == "horizontal" then

@@ -4,6 +4,7 @@
 local Util = require("lazyvim.util")
 
 local map = Util.safe_keymap_set
+local del = vim.keymap.del
 
 map("i", "jk", "<Esc>")
 
@@ -38,9 +39,9 @@ map("v", "<C-y>", "<esc>GVggy<C-o><C-o>")
 map("i", "<C-y>", "<esc>GVggy<C-o><C-o>i")
 
 -- 打开终端
-vim.keymap.del("n", "<leader>ft")
-vim.keymap.del("n", "<leader>fT")
--- map("n", "<c-_>", "<cmd>ToggleTerm<cr>")
+del("n", "<leader>ft")
+del("n", "<leader>fT")
+-- map("n", "<C-_>", "<cmd>ToggleTerm<cr>")
 
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
@@ -55,8 +56,7 @@ function _G.set_terminal_keymaps()
 end
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
-map("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
-map("n", "<c-n>", "<Plug>(YankyNextEntry)")
-map({ "n", "x" }, "<c-v>", "<Plug>(YankyPutAfter)")
-
-map("n", "<leader>gg", "<cmd>lua require('config.utils').lazygit_toggle()<CR>", { desc = "Lazygit" })
+map("x", "<C-c>", '"+y')
+map("n", "<C-p>", "<Plug>(YankyPreviousEntry)")
+map("n", "<C-n>", "<Plug>(YankyNextEntry)")
+map({ "n", "x" }, "<C-v>", "<Plug>(YankyPutAfter)")
