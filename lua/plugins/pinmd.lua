@@ -2,6 +2,7 @@ return {
   -- "ekickx/clipboard-image.nvim",
   -- enable = false,
   "zaiic/pinmd.nvim",
+  enabled = false,
   opts = {
     files = {
       location_for_new_attachments = "specified_folder_in_vault",

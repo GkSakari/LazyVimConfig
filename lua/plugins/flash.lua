@@ -13,7 +13,7 @@ return {
           matches = true,
         },
         modes = {
-          search = { enabled = true },
+          search = { enabled = false },
         },
       },
     },

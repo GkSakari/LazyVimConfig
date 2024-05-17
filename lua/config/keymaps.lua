@@ -57,6 +57,5 @@ end
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 map("x", "<C-c>", '"+y')
-map("n", "<C-p>", "<Plug>(YankyPreviousEntry)")
-map("n", "<C-n>", "<Plug>(YankyNextEntry)")
-map({ "n", "x" }, "<C-v>", "<Plug>(YankyPutAfter)")
+map({ "n", "x" }, "gp", '"0p', { desc = "Paste from last yanked" })
+map({ "n", "x" }, "gP", '"0P', { desc = "Paste from last yanked" })
