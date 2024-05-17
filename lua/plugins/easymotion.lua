@@ -1,6 +1,6 @@
 return {
   "zzhirong/vim-easymotion-zh",
-  -- enabled = false,
+  enabled = false,
   dependencies = {
     "easymotion/vim-easymotion",
     config = function()

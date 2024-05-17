@@ -1,5 +1,6 @@
 return {
   "AndrewRadev/switch.vim",
+  event = "VimEnter",
   cmd = { "Switch", "SwitchReverse", "SwitchExtend" },
   keys = { { mode = "n", "<leader>o", "<cmd>Switch<cr>", desc = "Switch" } },
   config = function()
