@@ -1,6 +1,5 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.mini-ai",
     "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.dap.core",
@@ -13,7 +12,7 @@
     "lazyvim.plugins.extras.ui.treesitter-context"
   ],
   "news": {
-    "NEWS.md": "4717"
+    "NEWS.md": "5094"
   },
-  "version": 3
+  "version": 4
 }

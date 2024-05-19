@@ -1,6 +1,4 @@
 return {
-  -- "ekickx/clipboard-image.nvim",
-  -- enable = false,
   "zaiic/pinmd.nvim",
   enabled = false,
   opts = {

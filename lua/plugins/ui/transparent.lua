@@ -1,8 +1,6 @@
--- File: lua/custom/plugins/transparent.lua
-
 return {
   "xiyaowong/transparent.nvim",
-  enable = true,
+  enabled = false,
   lazy = false,
   priority = 1500,
   config = function()
