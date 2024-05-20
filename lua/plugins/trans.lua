@@ -12,25 +12,29 @@ return {
     -- 目前这个功能的视窗还没有做好，可以在配置里将view.i改成hover
     { "mi", "<Cmd>TranslateInput<CR>", desc = "󰊿 Translate From Input" },
   },
-  opts = {
-    -- your configuration there
-    dir = "C:/Users/Sakarin/AppData/Local/nvim/data/",
-    debug = true,
-    db_path = "C:/Users/Sakarin/AppData/Local/nvim/data/ultimate.db",
-    frontend = {
-      default = { auto_play = false },
-      hover = {
-        order = {
-          offline = {
-            "title",
-            -- "tag",
-            "pos",
-            "exchange",
-            "translation",
-            "definition",
+  opts = function()
+    local system = vim.loop.os_uname().sysname
+    local localappdata = system == "Windows_NT" and os.getenv("LOCALAPPDATA") or "/root/.config"
+    return {
+      -- your configuration there
+      dir = localappdata .. "/nvim/data/",
+      debug = true,
+      db_path = localappdata .. "/nvim/data/ultimate.db",
+      frontend = {
+        default = { auto_play = false },
+        hover = {
+          order = {
+            offline = {
+              "title",
+              -- "tag",
+              "pos",
+              "exchange",
+              "translation",
+              "definition",
+            },
           },
         },
       },
-    },
-  },
+    }
+  end,
 }

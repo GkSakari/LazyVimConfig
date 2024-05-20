@@ -114,13 +114,13 @@ end
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
-vim.g.sqlite_clib_path = "C:/Users/Sakarin/AppData/Local/nvim/data/sqlite3.dll"
-
 vim.g.lazyvim_python_lsp = "pyright"
 
 -- enable powershell
-local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
-if is_windows then
+local system = vim.loop.os_uname().sysname
+if system == "Windows_NT" then
+  local localappdata = os.getenv("LOCALAPPDATA")
+  vim.g.sqlite_clib_path = localappdata .. "/nvim/data/sqlite3.dll"
   local powershell_options = {
     shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
     shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
@@ -132,4 +132,6 @@ if is_windows then
   for option, value in pairs(powershell_options) do
     vim.opt[option] = value
   end
+elseif system == "Linux" then
+  -- vim.g.sqlite_clib_path = "/root/.config/nvim/data/sqlite3.dll"
 end

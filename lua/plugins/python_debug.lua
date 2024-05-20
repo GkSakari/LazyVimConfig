@@ -22,7 +22,9 @@ return {
       --   { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
       -- },
     config = function()
-      require("dap-python").setup("python.exe")
+      local system=vim.loop.os_uname().sysname
+      local pypath= system == "Windows_NT" and "python.exe" or "python3"
+      require("dap-python").setup(pypath)
     end,
     -- },
   },
