@@ -50,7 +50,7 @@ opt.fillchars = {
   eob = " ",
 }
 opt.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
-opt.formatoptions = "jcroqlnt" -- tcqj
+opt.formatoptions = "tcqjronmM" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
