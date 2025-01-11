@@ -73,6 +73,7 @@ opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
+opt.autochdir = true
 
 -- 自动设置lua缩进
 vim.api.nvim_command("autocmd FileType lua setlocal shiftwidth=2")
