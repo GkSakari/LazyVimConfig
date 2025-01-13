@@ -14,7 +14,7 @@ return {
       end
 
       local keys = {
-        { [[<c-_>]] },
+        { [[<c-/>]] },
         -- { mode = "n", "<leader>gg", "<cmd>lua require('lazygit').lazygit_toggle()<CR>", { desc = "Lazygit" } },
         { "<c-\\>", ":ToggleTerm direction=horizontal<C-b>", desc = "New Horizontal Terminal" },
         { "<space>th", ":ToggleTerm direction=horizontal<C-b>", desc = "New Horizontal Terminal" },
@@ -43,7 +43,7 @@ return {
           return vim.o.columns * 0.4
         end
       end,
-      open_mapping = [[<c-_>]],
+      open_mapping = [[<c-/>]],
       -- autochdir = true,
       direction = "float",
       shade_filetypes = {},
