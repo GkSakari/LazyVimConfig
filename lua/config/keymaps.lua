@@ -7,6 +7,9 @@ local map = Util.safe_keymap_set
 local del = vim.keymap.del
 
 map("i", "jk", "<Esc>")
+del("i", "<M-j>")
+del("i", "<M-k>")
+map("i", "<M-j><M-k>", "<Esc>")
 
 -- 取消高亮
 map("n", "<leader>nh", ":nohl<CR>")
