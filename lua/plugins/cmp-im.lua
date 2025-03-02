@@ -1,5 +1,5 @@
 return {
-  "Leiyi548/cmp_im_zhh",
+  "GkSakari/cmp_im_zhh",
   dependencies = {
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-cmdline",
@@ -14,12 +14,11 @@ return {
       },
       sources = cmp.config.sources({
         { name = "IM" },
+      }, {
         { name = "lazydev" },
         { name = "nvim_lsp" },
         { name = "path" },
-        {
-          { name = "buffer" },
-        },
+        { name = "buffer" },
       }),
       enabled = function()
         local filetype = vim.api.nvim_buf_get_option(0, "filetype")
@@ -84,17 +83,17 @@ return {
       mode = "n",
       "<leader>cn",
       function()
-        vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
+        vim.notify(string.format(require("cmp_im").toggle() and "虎码启动" or "虎码退出"))
       end,
-      desc = "Enable/Disable IM",
+      desc = "切换虎码",
     },
     {
       mode = { "n", "v", "c", "i" },
       "<M-;>",
       function()
-        vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
+        vim.notify(string.format(require("cmp_im").toggle() and "虎码启动" or "虎码退出"))
       end,
-      desc = "Enable/Disable IM",
+      desc = "切换虎码",
     },
   },
 }
