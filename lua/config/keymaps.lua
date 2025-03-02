@@ -5,7 +5,8 @@
 local map = vim.keymap.set
 local del = vim.keymap.del
 
-map("i", "jk", "<Esc>")
+-- map("i", "jk", "<Esc>")
+map("i", ";j", "<Esc>")
 del("i", "<M-j>")
 del("i", "<M-k>")
 map("i", "<M-j><M-k>", "<Esc>")
