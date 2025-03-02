@@ -88,5 +88,13 @@ return {
       end,
       desc = "Enable/Disable IM",
     },
+    {
+      mode = { "n", "v", "c", "i" },
+      "<M-;>",
+      function()
+        vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
+      end,
+      desc = "Enable/Disable IM",
+    },
   },
 }
