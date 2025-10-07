@@ -41,3 +41,24 @@ if system == "Windows_NT" then
 elseif system == "Linux" then
   -- vim.g.sqlite_clib_path = "/root/.config/nvim/data/sqlite3.dll"
 end
+
+vim.o.clipboard = "unnamedplus"
+
+local function paste()
+  return {
+    vim.fn.split(vim.fn.getreg(""), "\n"),
+    vim.fn.getregtype(""),
+  }
+end
+
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = paste,
+    ["*"] = paste,
+  },
+}
