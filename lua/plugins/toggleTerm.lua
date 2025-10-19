@@ -6,11 +6,21 @@ return {
     -- lazy = false,
     cmd = { "ToggleTerm", "TermExec" },
     keys = function()
-      local Terminal = require("toggleterm.terminal").Terminal
-      local lazygit = Terminal:new({ cmd = "lazygit", direction = "float" })
+      -- 这个变量用来“记住”我们的 lazygit 终端实例
+      local lazygit_terminal = nil
+
+      -- 这是我们“新的”切换函数
       local function lazygit_toggle()
-        lazygit.dir = LazyVim.root.git()
-        lazygit:toggle()
+        -- 仅在第一次按下按键时才 require 和 new
+        if not lazygit_terminal then
+          -- vim.notify("首次加载 Lazygit 终端...", vim.log.levels.INFO, { title = "ToggleTerm" })
+          local Terminal = require("toggleterm.terminal").Terminal
+          lazygit_terminal = Terminal:new({ cmd = "lazygit", direction = "float" })
+        end
+
+        -- 运行切换逻辑
+        lazygit_terminal.dir = LazyVim.root.git()
+        lazygit_terminal:toggle()
       end
 
       local keys = {
@@ -25,13 +35,7 @@ return {
         { "<space>tT", "<cmd>ToggleTerm direction=tab<cr>", desc = "Tab Terminal" },
         { "<space>tf", ":ToggleTerm direction=float<C-b>", desc = "New Float Terminal" },
         { "<space>tF", "<cmd>ToggleTerm direction=float<cr>", desc = "Float Terminal" },
-        {
-          "<leader>gg",
-          function()
-            lazygit_toggle()
-          end,
-          desc = "Lazygit",
-        },
+        { "<leader>gg", lazygit_toggle, desc = "Lazygit" },
       }
       return keys
     end,
