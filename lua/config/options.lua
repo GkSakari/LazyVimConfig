@@ -42,23 +42,29 @@ elseif system == "Linux" then
   -- vim.g.sqlite_clib_path = "/root/.config/nvim/data/sqlite3.dll"
 end
 
-vim.o.clipboard = "unnamedplus"
+-- 设置剪贴板
+local is_ssh = os.getenv("SSH_CONNECTION") ~= nil or os.getenv("SSH_CLIENT") ~= nil
 
-local function paste()
+local function paste_fallback()
   return {
-    vim.fn.split(vim.fn.getreg(""), "\n"),
-    vim.fn.getregtype(""),
+    vim.fn.split(vim.fn.getreg(vim.v.register), "\n"),
+    vim.fn.getregtype(vim.v.register),
   }
 end
 
-vim.g.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  paste = {
-    ["+"] = paste,
-    ["*"] = paste,
-  },
-}
+if is_ssh then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+      ["+"] = paste_fallback,
+      ["*"] = paste_fallback,
+    },
+  }
+else
+  vim.g.clipboard = nil
+end
+vim.o.clipboard = "unnamedplus"
